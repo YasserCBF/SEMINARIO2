@@ -32,3 +32,37 @@ public class ContactDatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Manejar actualizaciones de la base de datos si es necesario
     }
+    public long addContact(String name, String phone_number) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, name);
+        values.put(COLUMN_PHONE_NUMBER, phone_number);
+        long id = db.insert(TABLE_NAME, null, values);
+        db.close();
+        return id;
+    }
+
+    public List<Contact> getAllContacts() {
+        List<Contact> contacts = new ArrayList<Contact>();
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        android.database.Cursor cursor = db.rawQuery(query, null);
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                long id = cursor.getLong(0);
+                String name = cursor.getString(1);
+                String phone_number = cursor.getString(2);
+                contacts.add(new Contact(id, name, phone_number));
+            }
+            cursor.close();
+        }
+        db.close();
+        return contacts;
+    }
+
+    public void deleteContact(long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[] { String.valueOf(id) });
+        db.close();
+    }
+}

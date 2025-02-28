@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId = "com.example.seminario2"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -32,9 +32,9 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation(androidx.recyclerview:recyclerview:1.2.1)
+    implementation(androidx.appcompat:appcompat:1.4.1)
+    implementation(com.google.android.material:material:1.4.0)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
