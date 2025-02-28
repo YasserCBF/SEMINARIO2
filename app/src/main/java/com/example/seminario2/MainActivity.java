@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import missing.namespace.R;
+
 public class MainActivity extends AppCompatActivity {
     private ContactDatabaseHelper dbHelper;
     private RecyclerView recyclerView;

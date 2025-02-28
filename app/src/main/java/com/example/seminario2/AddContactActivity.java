@@ -1,5 +1,6 @@
 package com.example.seminario2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import missing.namespace.R;
 
 public class AddContactActivity extends AppCompatActivity {
     private ContactDatabaseHelper dbHelper;
