@@ -30,7 +30,6 @@ public class ContactDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Manejar actualizaciones de la base de datos si es necesario
     }
     public long addContact(String name, String phone_number) {
         SQLiteDatabase db = this.getWritableDatabase();
